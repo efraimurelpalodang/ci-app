@@ -1,0 +1,56 @@
+CRITICAL - 2025-03-08 13:22:21 --> ErrorException: Undefined variable $nama
+[Method: GET, Route: /]
+in APPPATH\Views\home\index.php on line 2.
+ 1 APPPATH\Views\home\index.php(2): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $nama', 'D:\\xampp\\htdocs\\ci4-app\\app\\Views\\home\\index.php', 2)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\xampp\\htdocs\\ci4-app\\app\\Views\\home\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('home/index', [], true)
+ 5 APPPATH\Controllers\Home.php(11): view('home/index')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 13:22:21 --> ErrorException: Undefined variable $nama
+[Method: GET, Route: /]
+in APPPATH\Views\home\index.php on line 2.
+ 1 APPPATH\Views\home\index.php(2): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $nama', 'D:\\xampp\\htdocs\\ci4-app\\app\\Views\\home\\index.php', 2)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\xampp\\htdocs\\ci4-app\\app\\Views\\home\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('home/index', [], true)
+ 5 APPPATH\Controllers\Home.php(11): view('home/index')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 13:25:31 --> ErrorException: Undefined variable $nama
+[Method: GET, Route: /]
+in APPPATH\Views\home\index.php on line 2.
+ 1 APPPATH\Views\home\index.php(2): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $nama', 'D:\\xampp\\htdocs\\ci4-app\\app\\Views\\home\\index.php', 2)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\xampp\\htdocs\\ci4-app\\app\\Views\\home\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('home/index', [], true)
+ 5 APPPATH\Controllers\Home.php(11): view('home/index')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 13:25:36 --> ErrorException: Undefined variable $nama
+[Method: GET, Route: /]
+in APPPATH\Views\home\index.php on line 2.
+ 1 APPPATH\Views\home\index.php(2): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $nama', 'D:\\xampp\\htdocs\\ci4-app\\app\\Views\\home\\index.php', 2)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\xampp\\htdocs\\ci4-app\\app\\Views\\home\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('home/index', [], true)
+ 5 APPPATH\Controllers\Home.php(11): view('home/index')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
