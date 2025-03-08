@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controllers;
-// namespace App\Models\MahasiswaModel;
 
 use App\Models\MahasiswaModel;
 
@@ -18,11 +17,14 @@ class Mahasiswa extends BaseController
   {
 
     $mhs = $this->MahasiswaModel->findAll();
-    dd($mhs);
 
-    $data['tittle'] = 'Mahasiswa';
+    $data = [
+      "tittle" => "Mahasiswa",
+      "mahasiswa" => $mhs
+    ];
+
     return view('templates/header', $data)
-            . view('mahasiswa/index')
+            . view('mahasiswa/index', $data)
             . view('templates/footer'); 
   }
 
