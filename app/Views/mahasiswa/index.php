@@ -53,13 +53,20 @@
       </div>
       <div class="modal-body">
         <?= form_open('/simpan'); ?>
+        <?= csrf_field() ?>
         <div class="mb-1">
           <label for="nama" class="form-label">Nama</label>
-          <input type="text" class="form-control" id="nama" aria-describedby="emailHelp" name="nama">
+          <input type="text" class="form-control <?= (!empty(validation_errors())) ? 'is-invalid' : ''; ?>" id="nama" aria-describedby="emailHelp" name="nama">
+          <div id="validationServer03Feedback" class="invalid-feedback">
+            <?= validation_show_error('nama'); ?>
+          </div>
         </div>
         <div class="mb-1">
           <label for="npm" class="form-label">Npm</label>
-          <input type="text" class="form-control" id="npm" aria-describedby="emailHelp" name="npm">
+          <input type="text" class="form-control <?= (!empty(validation_errors())) ? 'is-invalid' : ''; ?>" id="npm" aria-describedby="emailHelp" name="npm">
+          <div id="validationServer03Feedback" class="invalid-feedback">
+            <?= validation_show_error('npm'); ?>
+          </div>
         </div>
         <div class="mb-1">
           <label for="email" class="form-label">Email</label>
@@ -80,3 +87,12 @@
     </div>
   </div>
 </div>
+
+<!-- myscript -->
+<?php if (!empty(validation_errors())): ?>
+  <script>
+    $(document).ready(function() {
+      $('#modalMhs').modal('show');
+    });
+  </script>
+<?php endif; ?>

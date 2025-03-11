@@ -32,10 +32,21 @@ class Mahasiswa extends BaseController
   {
     // validasi tambah dasta
     if(!$this->validate([
-      'nama' => 'required',
-      'npm' => 'required|is_unique[mahasiswa.npm]'
+      'nama' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => '{field} tidak boleh kosong, harus di isi'
+        ]
+      ],
+      'npm' => [
+        'rules' => 'required|is_unique[mahasiswa.npm]',
+        'errors' => [
+          'required' => '{field} tidak boleh kosong, harus di isi',
+          'is_unique' => '{field} sudah terdaftar, silahkan gunakan {field} lain'
+        ]
+        ]
     ])) {
-      return redirect()->to('/mahasiswa');
+      return redirect()->to('/mahasiswa')->withInput();
     }
   }
 
