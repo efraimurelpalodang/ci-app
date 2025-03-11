@@ -15,17 +15,28 @@ class Mahasiswa extends BaseController
 
   public function index(): string
   {
-
+    helper('form');
     $mhs = $this->MahasiswaModel->findAll();
 
     $data = [
       "tittle" => "Mahasiswa",
       "mahasiswa" => $mhs
     ];
-
     return view('templates/header', $data)
             . view('mahasiswa/index', $data)
             . view('templates/footer'); 
+
+  }
+
+  public function simpan() 
+  {
+    // validasi tambah dasta
+    if(!$this->validate([
+      'nama' => 'required',
+      'npm' => 'required|is_unique[mahasiswa.npm]'
+    ])) {
+      return redirect()->to('/mahasiswa');
+    }
   }
 
 }
