@@ -1,6 +1,6 @@
 <div class="container mt-4">
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12">
       <h3 class="mb-2">Daftar Mahasiswa</h3>
       <ul class="list-group">
         <table class="table">
@@ -9,6 +9,7 @@
               <th scope="col">No</th>
               <th scope="col">NPM</th>
               <th scope="col">Nama Mahasiswa</th>
+              <th scope="col">Email</th>
               <th scope="col">Jurusan</th>
               <th scope="col">Action</th>
             </tr>
@@ -20,6 +21,7 @@
               <th scope="row"><?= $nomor++; ?></th>
               <td><?= $mhs["npm"]; ?></td>
               <td><?= $mhs["nama"]; ?></td>
+              <td><?= $mhs["email"]; ?></td>
               <td><?= $mhs["jurusan"]; ?></td>
               <td>
                 <a href="#" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
