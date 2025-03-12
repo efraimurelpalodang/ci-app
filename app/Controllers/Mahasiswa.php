@@ -39,15 +39,26 @@ class Mahasiswa extends BaseController
         ]
       ],
       'npm' => [
-        'rules' => 'required|is_unique[mahasiswa.npm]',
+        'rules' => 'required|is_unique[mahasiswa.npm]|numeric',
         'errors' => [
           'required' => '{field} tidak boleh kosong, harus di isi',
-          'is_unique' => '{field} sudah terdaftar, silahkan gunakan {field} lain'
+          'is_unique' => '{field} sudah terdaftar, silahkan gunakan {field} lain',
+          'numeric' => '{field} tidak boleh mengandung huruf',
         ]
+      ],
+      'email' => [
+        'rules' => 'required|is_unique[mahasiswa.npm]|valid_email',
+        'errors' => [
+          'required' => '{field} tidak boleh kosong, harus di isi',
+          'is_unique' => '{field} sudah terdaftar, silahkan gunakan {field} lain',
+          'valid_email' => 'format {field} yang anda masukkan salah',
         ]
+      ],
     ])) {
       return redirect()->to('/mahasiswa')->withInput();
     }
+
+    echo "Berhasil..";
   }
 
 }

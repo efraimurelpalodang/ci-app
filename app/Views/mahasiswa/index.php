@@ -30,9 +30,12 @@
               <td><?= $mhs["npm"]; ?></td>
               <td><?= $mhs["nama"]; ?></td>
               <td>
+                <a href="#" class="btn btn-success text-capitalize">Detail <i class="bi bi-box-arrow-in-right fs-5"></i></a>
+              </td>
+              <!-- <td>
                 <a href="#" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
                 <a href="#" class="btn btn-danger"><i class="bi bi-person-dash"></i></a>
-              </td>
+              </td> -->
             </tr>
             <?php endforeach; ?>
           </tbody>
@@ -56,7 +59,7 @@
         <?= csrf_field() ?>
         <div class="mb-1">
           <label for="nama" class="form-label">Nama</label>
-          <input type="text" class="form-control <?= (!empty(validation_errors())) ? 'is-invalid' : ''; ?>" id="nama" aria-describedby="emailHelp" name="nama">
+          <input type="text" class="form-control <?= (!empty(validation_errors())) ? 'is-invalid' : ''; ?>" id="nama" aria-describedby="emailHelp" name="nama" autofocus>
           <div id="validationServer03Feedback" class="invalid-feedback">
             <?= validation_show_error('nama'); ?>
           </div>
@@ -70,7 +73,10 @@
         </div>
         <div class="mb-1">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+          <input type="email" class="form-control <?= (!empty(validation_errors())) ? 'is-invalid' : ''; ?>" id="email" aria-describedby="emailHelp" name="email">
+          <div id="validationServer03Feedback" class="invalid-feedback">
+            <?= validation_show_error('email'); ?>
+          </div>
         </div>
         <label for="jurusan" class="form-label">Jurusan</label>
         <select class="form-select" aria-label="Default select example" name="jurusan">
