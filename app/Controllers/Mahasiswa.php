@@ -22,9 +22,7 @@ class Mahasiswa extends BaseController
       "tittle" => "Mahasiswa",
       "mahasiswa" => $mhs
     ];
-    return view('templates/header', $data)
-            . view('mahasiswa/index', $data)
-            . view('templates/footer'); 
+    return view('mahasiswa/index', $data);
 
   }
 

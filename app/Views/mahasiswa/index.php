@@ -1,3 +1,7 @@
+<?= $this->extend('layouts/template'); ?>
+
+<?= $this->section('content'); ?>
+
 <div class="container mt-4">
 
   <div class="row mb-5">
@@ -32,10 +36,6 @@
               <td>
                 <a href="#" class="btn btn-success text-capitalize">Detail <i class="bi bi-box-arrow-in-right fs-5"></i></a>
               </td>
-              <!-- <td>
-                <a href="#" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
-                <a href="#" class="btn btn-danger"><i class="bi bi-person-dash"></i></a>
-              </td> -->
             </tr>
             <?php endforeach; ?>
           </tbody>
@@ -59,21 +59,21 @@
         <?= csrf_field() ?>
         <div class="mb-1">
           <label for="nama" class="form-label">Nama</label>
-          <input type="text" class="form-control <?= (!empty(validation_errors())) ? 'is-invalid' : ''; ?>" id="nama" aria-describedby="emailHelp" name="nama" autofocus>
+          <input type="text" class="form-control <?= (!empty(validation_show_error('nama'))) ? 'is-invalid' : ''; ?>" id="nama" aria-describedby="emailHelp" name="nama" autofocus value="<?= old('nama'); ?>">
           <div id="validationServer03Feedback" class="invalid-feedback">
             <?= validation_show_error('nama'); ?>
           </div>
         </div>
         <div class="mb-1">
           <label for="npm" class="form-label">Npm</label>
-          <input type="text" class="form-control <?= (!empty(validation_errors())) ? 'is-invalid' : ''; ?>" id="npm" aria-describedby="emailHelp" name="npm">
+          <input type="text" class="form-control <?= (!empty(validation_show_error('npm'))) ? 'is-invalid' : ''; ?>" id="npm" aria-describedby="emailHelp" name="npm" value="<?= old('npm'); ?>" >
           <div id="validationServer03Feedback" class="invalid-feedback">
             <?= validation_show_error('npm'); ?>
           </div>
         </div>
         <div class="mb-1">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control <?= (!empty(validation_errors())) ? 'is-invalid' : ''; ?>" id="email" aria-describedby="emailHelp" name="email">
+          <input type="email" class="form-control <?= (!empty(validation_show_error('email'))) ? 'is-invalid' : ''; ?>" id="email" aria-describedby="emailHelp" name="email" value="<?= old('email'); ?>">
           <div id="validationServer03Feedback" class="invalid-feedback">
             <?= validation_show_error('email'); ?>
           </div>
@@ -102,3 +102,5 @@
     });
   </script>
 <?php endif; ?>
+
+<?= $this->endSection(); ?>
