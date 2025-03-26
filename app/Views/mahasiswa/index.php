@@ -16,6 +16,13 @@
   <div class="row">
     <div class="col-md-10">
       <h3 class="mb-2">Daftar Mahasiswa</h3>
+
+      <?php if(session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success" role="alert">
+          <?= session()->getFlashdata('pesan'); ?>
+        </div>
+      <?php endif; ?>
+
       <ul class="list-group">
         <table class="table">
           <thead>

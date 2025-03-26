@@ -56,7 +56,16 @@ class Mahasiswa extends BaseController
       return redirect()->to('/mahasiswa')->withInput();
     }
 
-    echo "Berhasil..";
+    $this->MahasiswaModel->save([
+      'nama' => $this->request->getVar('nama'),
+      'npm' => $this->request->getVar('npm'),
+      'email' => $this->request->getVar('email'),
+      'jurusan' => $this->request->getVar('jurusan'),
+    ]);
+
+    session()->setFlashdata('pesan','Data Berhasil Ditambahkan');
+
+    return redirect()->to('/mahasiswa');
   }
 
 }
