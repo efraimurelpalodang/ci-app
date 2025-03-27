@@ -41,7 +41,7 @@
               <td><?= $mhs["npm"]; ?></td>
               <td><?= $mhs["nama"]; ?></td>
               <td>
-                <a href="#" class="btn btn-success text-capitalize">Detail <i class="bi bi-box-arrow-in-right fs-5"></i></a>
+                <a href="detail/<?= $mhs["id"]; ?>" class="btn btn-success text-capitalize">Detail <i class="bi bi-box-arrow-in-right fs-5"></i></a>
               </td>
             </tr>
             <?php endforeach; ?>

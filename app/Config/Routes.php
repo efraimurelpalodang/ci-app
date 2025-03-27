@@ -7,4 +7,5 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/mahasiswa', 'Mahasiswa::index');
+$routes->get('/detail/(:num)', 'Mahasiswa::detail/$1');
 $routes->post('/simpan', 'Mahasiswa::simpan');

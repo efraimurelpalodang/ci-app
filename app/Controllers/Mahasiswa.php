@@ -16,7 +16,7 @@ class Mahasiswa extends BaseController
   public function index(): string
   {
     helper('form');
-    $mhs = $this->MahasiswaModel->findAll();
+    $mhs = $this->MahasiswaModel->getMahasiswa();
 
     $data = [
       "tittle" => "Mahasiswa",
@@ -24,6 +24,17 @@ class Mahasiswa extends BaseController
     ];
     return view('mahasiswa/index', $data);
 
+  }
+
+  public function detail($id) 
+  {
+    $mahasiswa = $this->MahasiswaModel->getMahasiswa($id);    
+    $data = [
+      "tittle" => "mahasiswa detail",
+      "mhs" => $mahasiswa
+    ];
+
+    return view('mahasiswa/detail', $data);
   }
 
   public function simpan() 
