@@ -22,7 +22,8 @@ class Mahasiswa extends BaseController
       "tittle" => "Mahasiswa",
       "mahasiswa" => $mhs
     ];
-    return view('mahasiswa/index', $data);
+    return  view('layouts/navbar', $data) .
+            view('mahasiswa/index');
 
   }
 
@@ -76,6 +77,14 @@ class Mahasiswa extends BaseController
 
     session()->setFlashdata('pesan','Data Berhasil Ditambahkan');
 
+    return redirect()->to('/mahasiswa');
+  }
+
+  public function delete($id)
+  {
+    $this->MahasiswaModel->delete($id);
+
+    session()->setFlashdata('pesan','Data Berhasil Dihapus');
     return redirect()->to('/mahasiswa');
   }
 

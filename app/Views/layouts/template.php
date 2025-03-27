@@ -11,21 +11,8 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container">
-        <a class="navbar-brand" href="#">CI4 App</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="<?= base_url(); ?>">Home</a>
-            <a class="nav-link" href="#">About</a>
-            <a class="nav-link" href="mahasiswa">Mahasiswa</a>
-          </div>
-        </div>
-      </div>
-    </nav>
+    
+  <?= $this->renderSection('navbar'); ?>
 
     <?= $this->renderSection('content'); ?>
 

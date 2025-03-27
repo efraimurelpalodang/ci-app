@@ -3,7 +3,7 @@
 <?= $this->section('content'); ?>
 <div class="row mt-5">
   <div class="col-sm-8 offset-sm-2">
-    <h2 class="text-center">Detail Data Mahasiswa</h2>
+    <h2 class="text-center"><i class="bi bi-incognito fs-1 m-0"></i> Detail Data Mahasiswa</h2>
   </div>
 </div>
 <div class="row mt-5 justify-content-center">
@@ -22,8 +22,9 @@
               <li class="list-group-item">Email : <?= $mhs["email"]; ?></li>
               <p class="card-text list-group-item"><small class="text-body-secondary">Mahasiswa aktif</small></p>
             </ul>
-            <a href="/mahasiswa" class="btn btn-secondary mt-3 btn-sm">Kembali</a>
-            <a href="/mahasiswa" class="btn btn-danger mt-3 btn-sm">Hapus</a>
+            <a href="/mahasiswa" class="btn btn-secondary mt-3 btn-sm"><i class="bi bi-box-arrow-left"></i> Kembali</a>
+            <a href="/mahasiswa" class="btn btn-warning mt-3 btn-sm">Edit <i class="bi bi-pencil"></i></a>
+            <a href="delete/<?= $mhs["id"]; ?>" class="btn btn-danger mt-3 btn-sm">Hapus <i class="bi bi-eraser"></i></a>
           </div>
         </div>
       </div>
