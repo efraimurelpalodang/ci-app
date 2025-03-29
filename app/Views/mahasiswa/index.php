@@ -67,7 +67,7 @@
         <div class="row">
           <div class="col-md-6">
             <div class="mb-1">
-              <label for="nama" class="form-label">Nama</label>
+              <label for="nama" class="form-label">Nama</label> 
               <input type="text" class="form-control <?= (!empty(validation_show_error('nama'))) ? 'is-invalid' : ''; ?>" id="nama" aria-describedby="emailHelp" name="nama" autofocus value="<?= old('nama'); ?>">
               <div id="validationServer03Feedback" class="invalid-feedback">
                 <?= validation_show_error('nama'); ?>
@@ -97,10 +97,13 @@
             <div class="col-md-6">
               <label class="form-label" for="gambar">Upload Poto Profile</label>
               <div class="input-group">
-                <input type="file" class="form-control <?= (!empty(validation_show_error('gambar'))) ? 'is-invalid' : ''; ?>" id="gambar">
-              <div id="validationServer03Feedback" class="invalid-feedback">
-                <?= validation_show_error('gambar'); ?>
+                <input type="file" class="form-control <?= (!empty(validation_show_error('gambar'))) ? 'is-invalid' : ''; ?>" id="gambar" name="gambar" onchange="previewImg()">
+                <div id="validationServer03Feedback" class="invalid-feedback">
+                  <?= validation_show_error('gambar'); ?>
+                </div>
               </div>
+              <div style="max-width: 100%; height: 400px; overflow: hidden;">
+                <img src="/images/default.png" alt="preview" class="img-thumbnail mt-3 img-preview" width="100%" height="300px">
               </div>
             </div>
           </div>
@@ -122,5 +125,7 @@
     });
   </script>
 <?php endif; ?>
+
+<script src="/js/script.js"></script>
 
 <?= $this->endSection(); ?>

@@ -65,9 +65,8 @@ class Mahasiswa extends BaseController
         ]
       ],
       'gambar' => [
-        'rules' => 'uploaded[gambar]|max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+        'rules' => 'max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
         'errors' => [
-          'uploaded' => 'wajib memasukkan gambar profile anda',
           'max_size' => 'ukuran {field} tidak boleh lebih dari 1mb',
           'is_image' => 'yang anda pilih bukan gambar',
           'mime_in' => 'yang anda pilih bukan gambar',
@@ -77,11 +76,24 @@ class Mahasiswa extends BaseController
       return redirect()->to('/mahasiswa')->withInput();
     }
 
+    // ambil gambar
+    $profil = $this->request->getFile('gambar');
+    // cek apakah tidak ada gambar yang diupload
+    if($profil->getError() == 4) {
+      $namaPp = 'default.png';
+    } else {
+      // generate nama sampul random
+      $namaPp = $profil->getRandomName();
+      // pindahkan file ke folder img
+      $profil->move('images', $namaPp);
+    }
+
     $this->MahasiswaModel->save([
       'nama' => $this->request->getVar('nama'),
       'npm' => $this->request->getVar('npm'),
       'email' => $this->request->getVar('email'),
       'jurusan' => $this->request->getVar('jurusan'),
+      'gambar' => $namaPp,
     ]);
 
     session()->setFlashdata('pesan','Data Berhasil Ditambahkan');
