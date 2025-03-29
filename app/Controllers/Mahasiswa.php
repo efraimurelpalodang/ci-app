@@ -103,8 +103,15 @@ class Mahasiswa extends BaseController
 
   public function delete($id)
   {
-    $this->MahasiswaModel->delete($id);
+    // cari gambar berdasarkan id
+    $mhs = $this->MahasiswaModel->find($id);
+    // cek jika file gambarnya default
+    if($mhs["gambar"] != 'default.png') {
+      // hapus gambar
+      unlink('images/' . $mhs["gambar"]);
+    }
 
+    $this->MahasiswaModel->delete($id);
     session()->setFlashdata('pesan','Data Berhasil Dihapus');
     return redirect()->to('/mahasiswa');
   }
