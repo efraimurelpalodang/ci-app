@@ -64,6 +64,15 @@ class Mahasiswa extends BaseController
           'valid_email' => 'format {field} yang anda masukkan salah',
         ]
       ],
+      'gambar' => [
+        'rules' => 'uploaded[gambar]|max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+        'errors' => [
+          'uploaded' => 'wajib memasukkan gambar profile anda',
+          'max_size' => 'ukuran {field} tidak boleh lebih dari 1mb',
+          'is_image' => 'yang anda pilih bukan gambar',
+          'mime_in' => 'yang anda pilih bukan gambar',
+        ]
+      ]
     ])) {
       return redirect()->to('/mahasiswa')->withInput();
     }

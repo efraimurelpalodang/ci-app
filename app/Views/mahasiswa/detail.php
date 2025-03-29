@@ -24,7 +24,7 @@
             </ul>
             <a href="/mahasiswa" class="btn btn-secondary mt-3 btn-sm"><i class="bi bi-box-arrow-left"></i> Kembali</a>
             <a href="/mahasiswa" class="btn btn-warning mt-3 btn-sm">Edit <i class="bi bi-pencil"></i></a>
-            <a href="delete/<?= $mhs["id"]; ?>" class="btn btn-danger mt-3 btn-sm">Hapus <i class="bi bi-eraser"></i></a>
+            <a href="delete/<?= $mhs["id"]; ?>" class="btn btn-danger mt-3 btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data mahasiswa <?= $mhs['nama']; ?>')">Hapus <i class="bi bi-eraser"></i></a>
           </div>
         </div>
       </div>
