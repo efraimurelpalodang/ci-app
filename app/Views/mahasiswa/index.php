@@ -39,7 +39,7 @@
             <tr>
               <th scope="row"><?= $nomor++; ?></th>
               <td><?= $mhs["npm"]; ?></td>
-              <td><?= $mhs["nama"]; ?></td>
+              <td class="text-uppercase"><?= $mhs["nama"]; ?></td>
               <td>
                 <a href="detail/<?= $mhs["id"]; ?>" class="btn btn-success text-capitalize">Detail <i class="bi bi-box-arrow-in-right fs-5"></i></a>
               </td>
@@ -93,18 +93,31 @@
               <option value="Pertanian">Pertanian</option>
               <option value="Teknik Informatika">Teknik Informatika</option>
             </select>
+            <div class="d-flex flex-column">
+              <div class="form-check form-check-inline mt-3">
+                <input class="form-check-input" type="radio" name="status" id="inlineRadio1" value="Mahasiswa Aktif">
+                <label class="form-check-label" for="inlineRadio1">Mahasiswa Aktif</label>
+              </div>
+              <div class="form-check form-check-inline mt-3">
+                <input class="form-check-input" type="radio" name="status" id="inlineRadio2" value="Mahasiswa Cuti">
+                <label class="form-check-label" for="inlineRadio2">Mahasiswa Cuti</label>
+              </div>
+              <div class="form-check form-check-inline mt-3">
+                <input class="form-check-input" type="radio" name="status" id="inlineRadio2" value="Mahasiswa Tidak Aktif">
+                <label class="form-check-label" for="inlineRadio2">Mahasiswa Tidak Aktif</label>
+              </div>
             </div>
-            <div class="col-md-6">
-              <label class="form-label" for="gambar">Upload Poto Profile</label>
-              <div class="input-group">
-                <input type="file" class="form-control <?= (!empty(validation_show_error('gambar'))) ? 'is-invalid' : ''; ?>" id="gambar" name="gambar" onchange="previewImg()">
-                <div id="validationServer03Feedback" class="invalid-feedback">
-                  <?= validation_show_error('gambar'); ?>
-                </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="gambar">Upload Poto Profile</label>
+            <div class="input-group">
+              <input type="file" class="form-control <?= (!empty(validation_show_error('gambar'))) ? 'is-invalid' : ''; ?>" id="gambar" name="gambar" onchange="previewImg()">
+              <div id="validationServer03Feedback" class="invalid-feedback">
+                <?= validation_show_error('gambar'); ?>
               </div>
-              <div style="max-width: 100%; height: 400px; overflow: hidden;">
-                <img src="/images/default.png" alt="preview" class="img-thumbnail mt-3 img-preview" width="100%" height="300px">
-              </div>
+            </div>
+            <div style="max-width: 100%; height: 400px; overflow: hidden;">
+              <img src="/images/default.png" alt="preview" class="img-thumbnail mt-3 img-preview" width="100%" height="300px">
             </div>
           </div>
         </div>

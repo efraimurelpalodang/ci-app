@@ -93,6 +93,7 @@ class Mahasiswa extends BaseController
       'npm' => $this->request->getVar('npm'),
       'email' => $this->request->getVar('email'),
       'jurusan' => $this->request->getVar('jurusan'),
+      'status' => $this->request->getVar('status'),
       'gambar' => $namaPp,
     ]);
 
