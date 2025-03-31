@@ -7,42 +7,8 @@ use App\Models\MahasiswaModel;
 class Mahasiswa extends BaseController 
 {
   protected $MahasiswaModel;
-
-  public function __construct()
-  {
-    $this->MahasiswaModel = new MahasiswaModel();
-  }
-
-  public function index(): string
-  {
-    helper('form');
-    $mhs = $this->MahasiswaModel->getMahasiswa();
-
-    $data = [
-      "tittle" => "Mahasiswa",
-      "mahasiswa" => $mhs
-    ];
-    return  view('layouts/navbar', $data) .
-            view('mahasiswa/index');
-
-  }
-
-  public function detail($id) 
-  {
-    $mahasiswa = $this->MahasiswaModel->getMahasiswa($id);    
-    $data = [
-      "tittle" => "mahasiswa detail",
-      "mhs" => $mahasiswa
-    ];
-
-    return view('mahasiswa/detail', $data);
-  }
-
-  public function simpan() 
-  {
-    // validasi tambah dasta
-    if(!$this->validate([
-      'nama' => [
+  public $validasi = [
+    'nama' => [
         'rules' => 'required',
         'errors' => [
           'required' => '{field} tidak boleh kosong, harus di isi'
@@ -72,7 +38,49 @@ class Mahasiswa extends BaseController
           'mime_in' => 'yang anda pilih bukan gambar',
         ]
       ]
-    ])) {
+  ];
+
+  public function __construct()
+  {
+    $this->MahasiswaModel = new MahasiswaModel();
+  }
+
+  public function index(): string
+  {
+    helper('form');
+    $mhs = $this->MahasiswaModel->getMahasiswa();
+
+    $data = [
+      "tittle" => "Mahasiswa",
+      "mahasiswa" => $mhs
+    ];
+    return  view('layouts/navbar', $data) .
+            view('mahasiswa/index');
+
+  }
+
+  public function detail($id) 
+  {
+    helper('form');
+
+    // validasi tambah dasta
+    if(!$this->validate($this->validasi)) {
+      return redirect()->to('/mahasiswa')->withInput();
+    }
+    
+    $mahasiswa = $this->MahasiswaModel->getMahasiswa($id);    
+    $data = [
+      "tittle" => "mahasiswa detail",
+      "mhs" => $mahasiswa
+    ];
+
+    return view('mahasiswa/detail', $data);
+  }
+
+  public function simpan() 
+  {
+    // validasi tambah data
+    if(!$this->validate($this->validasi)) {
       return redirect()->to('/mahasiswa')->withInput();
     }
 

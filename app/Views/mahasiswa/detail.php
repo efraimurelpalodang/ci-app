@@ -23,7 +23,7 @@
               <p class="card-text list-group-item"><small class="text-body-secondary"><?= $mhs["status"]; ?></small></p>
             </ul>
             <a href="/mahasiswa" class="btn btn-secondary mt-3 btn-sm"><i class="bi bi-box-arrow-left"></i> Kembali</a>
-            <a href="/mahasiswa" class="btn btn-warning mt-3 btn-sm">Edit <i class="bi bi-pencil"></i></a>
+            <a href="" class="btn btn-warning mt-3 btn-sm" data-bs-toggle="modal" data-bs-target="#editMhs">Edit <i class="bi bi-pencil"></i></a>
             <a href="delete/<?= $mhs["id"]; ?>" class="btn btn-danger mt-3 btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data mahasiswa <?= $mhs['nama']; ?>')">Hapus <i class="bi bi-eraser"></i></a>
           </div>
         </div>
@@ -31,5 +31,95 @@
     </div>
   </div>
 </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="editMhs" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">FORM UBAH DATA</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <?= form_open('/edit', ['enctype' => 'multipart/form-data']); ?>
+        <?= csrf_field() ?>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-1">
+              <label for="nama" class="form-label">Nama</label> 
+              <input type="text" class="form-control <?= (!empty(validation_show_error('nama'))) ? 'is-invalid' : ''; ?>" id="nama" aria-describedby="emailHelp" name="nama" autofocus value="<?= $mhs["nama"]; ?>">
+              <div id="validationServer03Feedback" class="invalid-feedback">
+                <?= validation_show_error('nama'); ?>
+              </div>
+            </div>
+            <div class="mb-1">
+              <label for="npm" class="form-label">Npm</label>
+              <input type="text" class="form-control <?= (!empty(validation_show_error('npm'))) ? 'is-invalid' : ''; ?>" id="npm" aria-describedby="emailHelp" name="npm" value="<?= $mhs["npm"]; ?>" >
+              <div id="validationServer03Feedback" class="invalid-feedback">
+                <?= validation_show_error('npm'); ?>
+              </div>
+            </div>
+            <div class="mb-1">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control <?= (!empty(validation_show_error('email'))) ? 'is-invalid' : ''; ?>" id="email" aria-describedby="emailHelp" name="email" value="<?= $mhs["email"]; ?>">
+              <div id="validationServer03Feedback" class="invalid-feedback">
+                <?= validation_show_error('email'); ?>
+              </div>
+            </div>
+            <label for="jurusan" class="form-label">Jurusan</label>
+            <select class="form-select" aria-label="Default select example" name="jurusan">
+              <option value="Perikanan">Perikanan</option>
+              <option value="Pertanian">Pertanian</option>
+              <option value="Teknik Informatika">Teknik Informatika</option>
+            </select>
+            <div class="d-flex flex-column">
+              <div class="form-check form-check-inline mt-3">
+                <input class="form-check-input" type="radio" name="status" id="inlineRadio1" value="Mahasiswa Aktif">
+                <label class="form-check-label" for="inlineRadio1">Mahasiswa Aktif</label>
+              </div>
+              <div class="form-check form-check-inline mt-3">
+                <input class="form-check-input" type="radio" name="status" id="inlineRadio2" value="Mahasiswa Cuti">
+                <label class="form-check-label" for="inlineRadio2">Mahasiswa Cuti</label>
+              </div>
+              <div class="form-check form-check-inline mt-3">
+                <input class="form-check-input" type="radio" name="status" id="inlineRadio2" value="Mahasiswa Tidak Aktif">
+                <label class="form-check-label" for="inlineRadio2">Mahasiswa Tidak Aktif</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="gambar">Upload Poto Profile</label>
+            <div class="input-group">
+              <input type="file" class="form-control <?= (!empty(validation_show_error('gambar'))) ? 'is-invalid' : ''; ?>" id="gambar" name="gambar" onchange="previewImg()">
+              <div id="validationServer03Feedback" class="invalid-feedback">
+                <?= validation_show_error('gambar'); ?>
+              </div>
+            </div>
+            <div style="max-width: 100%; height: 400px; overflow: hidden;">
+              <img src="/images/default.png" alt="preview" class="img-thumbnail mt-3 img-preview" width="100%" height="300px">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer mt-5">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success">Ubah</button>
+        </div>
+      <?= form_close(); ?>
+    </div>
+  </div>
+</div>
+
+<!-- myscript -->
+<?php if (!empty(validation_errors())): ?>
+  <script>
+    $(document).ready(function() {
+      $('#modalMhs').modal('show');
+    });
+  </script>
+<?php endif; ?>
+
+<script src="/js/script.js"></script>
 
 <?= $this->endSection(); ?>
