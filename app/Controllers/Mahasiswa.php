@@ -37,6 +37,12 @@ class Mahasiswa extends BaseController
           'is_image' => 'yang anda pilih bukan gambar',
           'mime_in' => 'yang anda pilih bukan gambar',
         ]
+      ],
+      'status' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => '{field} wajib dipilih',
+        ]
       ]
   ];
 
@@ -64,9 +70,9 @@ class Mahasiswa extends BaseController
     helper('form');
 
     // validasi tambah dasta
-    if(!$this->validate($this->validasi)) {
-      return redirect()->to('/mahasiswa')->withInput();
-    }
+    // if(!$this->validate($this->validasi)) {
+    //   return redirect()->to("detail/")->withInput();
+    // }
     
     $mahasiswa = $this->MahasiswaModel->getMahasiswa($id);    
     $data = [
