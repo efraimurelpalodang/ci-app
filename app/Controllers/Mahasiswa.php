@@ -70,9 +70,9 @@ class Mahasiswa extends BaseController
     helper('form');
 
     // validasi tambah dasta
-    // if(!$this->validate($this->validasi)) {
-    //   return redirect()->to("detail/")->withInput();
-    // }
+    if($this->validate($this->validasi)) {
+      return redirect()->to("detail/")->withInput();
+    }
     
     $mahasiswa = $this->MahasiswaModel->getMahasiswa($id);    
     $data = [

@@ -76,16 +76,16 @@
             </select>
             <div class="d-flex flex-column">
               <div class="form-check form-check-inline mt-3">
-                <input class="form-check-input" type="radio" name="status" id="inlineRadio1" value="Mahasiswa Aktif">
-                <label class="form-check-label" for="inlineRadio1">Mahasiswa Aktif</label>
+                <input class="form-check-input" type="radio" name="status" id="status1" value="Mahasiswa Aktif">
+                <label class="form-check-label" for="status1">Mahasiswa Aktif</label>
               </div>
               <div class="form-check form-check-inline mt-3">
-                <input class="form-check-input" type="radio" name="status" id="inlineRadio2" value="Mahasiswa Cuti">
-                <label class="form-check-label" for="inlineRadio2">Mahasiswa Cuti</label>
+                <input class="form-check-input" type="radio" name="status" id="status2" value="Mahasiswa Cuti">
+                <label class="form-check-label" for="status2">Mahasiswa Cuti</label>
               </div>
               <div class="form-check form-check-inline mt-3">
-                <input class="form-check-input" type="radio" name="status" id="inlineRadio2" value="Mahasiswa Tidak Aktif">
-                <label class="form-check-label" for="inlineRadio2">Mahasiswa Tidak Aktif</label>
+                <input class="form-check-input" type="radio" name="status" id="status3" value="Mahasiswa Tidak Aktif">
+                <label class="form-check-label" for="status3">Mahasiswa Tidak Aktif</label>
               </div>
             </div>
           </div>
