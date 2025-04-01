@@ -43,7 +43,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <?= form_open('/edit', ['enctype' => 'multipart/form-data']); ?>
+        <?= form_open('edit/'. $mhs["id"], ['enctype' => 'multipart/form-data']); ?>
         <?= csrf_field() ?>
         <div class="row">
           <div class="col-md-6">
@@ -115,7 +115,7 @@
 <?php if (!empty(validation_errors())): ?>
   <script>
     $(document).ready(function() {
-      $('#modalMhs').modal('show');
+      $('#editMhs').modal('show');
     });
   </script>
 <?php endif; ?>

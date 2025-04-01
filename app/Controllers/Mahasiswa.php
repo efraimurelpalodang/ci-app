@@ -15,6 +15,7 @@ class Mahasiswa extends BaseController
         ]
       ],
       'npm' => [
+        // cek npm
         'rules' => 'required|is_unique[mahasiswa.npm]|numeric',
         'errors' => [
           'required' => '{field} tidak boleh kosong, harus di isi',
@@ -68,11 +69,6 @@ class Mahasiswa extends BaseController
   public function detail($id) 
   {
     helper('form');
-
-    // validasi tambah dasta
-    if($this->validate($this->validasi)) {
-      return redirect()->to("detail/")->withInput();
-    }
     
     $mahasiswa = $this->MahasiswaModel->getMahasiswa($id);    
     $data = [
@@ -114,6 +110,38 @@ class Mahasiswa extends BaseController
     session()->setFlashdata('pesan','Data Berhasil Ditambahkan');
 
     return redirect()->to('/mahasiswa');
+  }
+
+  public function edit($id) {
+    // validasi ubah data
+    if(!$this->validate($this->validasi)) {
+      return redirect()->to("detail/{$id}")->withInput();
+    }
+
+    // ambil gambar
+    $profil = $this->request->getFile('gambar');
+    // cek apakah tidak ada gambar yang diupload
+    if($profil->getError() == 4) {
+      $namaPp = 'default.png';
+    } else {
+      // generate nama sampul random
+      $namaPp = $profil->getRandomName();
+      // pindahkan file ke folder img
+      $profil->move('images', $namaPp);
+    }
+
+    $this->MahasiswaModel->save([
+      'nama' => $this->request->getVar('nama'),
+      'npm' => $this->request->getVar('npm'),
+      'email' => $this->request->getVar('email'),
+      'jurusan' => $this->request->getVar('jurusan'),
+      'status' => $this->request->getVar('status'),
+      'gambar' => $namaPp,
+    ]);
+
+    session()->setFlashdata('pesan','Data Berhasil Ditambahkan');
+
+    return redirect()->to('detail/'. $this->request->getVar('id'));
   }
 
   public function delete($id)
