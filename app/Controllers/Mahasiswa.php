@@ -15,7 +15,6 @@ class Mahasiswa extends BaseController
         ]
       ],
       'npm' => [
-        // cek npm
         'rules' => 'required|is_unique[mahasiswa.npm]|numeric',
         'errors' => [
           'required' => '{field} tidak boleh kosong, harus di isi',
@@ -113,8 +112,53 @@ class Mahasiswa extends BaseController
   }
 
   public function edit($id) {
+    // data lama
+    $datalama = $this->MahasiswaModel->getMahasiswa($id);
+
+    if ( $datalama["npm"] == $this->request->getVar('npm') ) {
+      $rule = 'required';
+    } else {
+      $rule = 'required|is_unique[mahasiswa.npm]|numeric';
+    }
     // validasi ubah data
-    if(!$this->validate($this->validasi)) {
+    if(!$this->validate([
+      'nama' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => '{field} tidak boleh kosong, harus di isi'
+        ]
+      ],
+      'npm' => [
+        'rules' => $rule,
+        'errors' => [
+          'required' => '{field} tidak boleh kosong, harus di isi',
+          'is_unique' => '{field} sudah terdaftar, silahkan gunakan {field} lain',
+          'numeric' => '{field} tidak boleh mengandung huruf',
+        ]
+      ],
+      'email' => [
+        'rules' => 'required|is_unique[mahasiswa.npm]|valid_email',
+        'errors' => [
+          'required' => '{field} tidak boleh kosong, harus di isi',
+          'is_unique' => '{field} sudah terdaftar, silahkan gunakan {field} lain',
+          'valid_email' => 'format {field} yang anda masukkan salah',
+        ]
+      ],
+      'gambar' => [
+        'rules' => 'max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+        'errors' => [
+          'max_size' => 'ukuran {field} tidak boleh lebih dari 1mb',
+          'is_image' => 'yang anda pilih bukan gambar',
+          'mime_in' => 'yang anda pilih bukan gambar',
+        ]
+      ],
+      'status' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => '{field} wajib dipilih',
+        ]
+      ]
+    ])) {
       return redirect()->to("detail/{$id}")->withInput();
     }
 
@@ -141,7 +185,7 @@ class Mahasiswa extends BaseController
 
     session()->setFlashdata('pesan','Data Berhasil Ditambahkan');
 
-    return redirect()->to('detail/'. $this->request->getVar('id'));
+    return redirect()->to('detail/'. $id);
   }
 
   public function delete($id)
