@@ -175,6 +175,7 @@ class Mahasiswa extends BaseController
     }
 
     $this->MahasiswaModel->save([
+      'id' => $id,
       'nama' => $this->request->getVar('nama'),
       'npm' => $this->request->getVar('npm'),
       'email' => $this->request->getVar('email'),
@@ -183,7 +184,7 @@ class Mahasiswa extends BaseController
       'gambar' => $namaPp,
     ]);
 
-    session()->setFlashdata('pesan','Data Berhasil Ditambahkan');
+    session()->setFlashdata('pesan','Data Berhasil Diubah');
 
     return redirect()->to('detail/'. $id);
   }

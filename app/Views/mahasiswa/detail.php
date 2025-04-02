@@ -7,6 +7,15 @@
   </div>
 </div>
 <div class="row mt-5 justify-content-center">
+
+  <?php if(session()->getFlashdata('pesan')) : ?>
+    <div class="col-sm-8">
+      <div class="alert alert-success" role="alert">
+        <i class="bi bi-check2-circle"></i> <?= session()->getFlashdata('pesan'); ?>
+      </div>
+    </div>
+  <?php endif; ?>
+
   <div class="col-sm-8">
     <div class="card mb-3">
       <div class="row g-0">

@@ -19,7 +19,7 @@
 
       <?php if(session()->getFlashdata('pesan')) : ?>
         <div class="alert alert-success" role="alert">
-          <?= session()->getFlashdata('pesan'); ?>
+          <i class="bi bi-check2-circle"></i> <?= session()->getFlashdata('pesan'); ?>
         </div>
       <?php endif; ?>
 
