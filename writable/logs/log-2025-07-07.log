@@ -1,0 +1,58 @@
+CRITICAL - 2025-07-07 00:26:03 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "beranda.php"
+[Method: GET, Route: /]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('beranda.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('beranda', [], true)
+ 3 APPPATH\Controllers\Beranda.php(9): view('beranda')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Beranda->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Beranda))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('D:\\xampp\\htdocs\\ci-app\\public\\index.php')
+CRITICAL - 2025-07-07 00:26:37 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "beranda.php"
+[Method: GET, Route: /]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('beranda.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('beranda', [], true)
+ 3 APPPATH\Controllers\Beranda.php(9): view('beranda')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Beranda->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Beranda))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('D:\\xampp\\htdocs\\ci-app\\public\\index.php')
+CRITICAL - 2025-07-07 00:50:42 --> ErrorException: Undefined variable $judul
+[Method: GET, Route: mahasiswa]
+in APPPATH\Views\layouts\template.php on line 6.
+ 1 APPPATH\Views\layouts\template.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $judul', 'D:\\xampp\\htdocs\\ci-app\\app\\Views\\layouts\\template.php', 6)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\xampp\\htdocs\\ci-app\\app\\Views\\layouts\\template.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('layouts/template', [], true)
+ 5 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('mahasiswa/index', [], true)
+ 6 APPPATH\Controllers\Mahasiswa.php(9): view('mahasiswa/index')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Mahasiswa->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mahasiswa))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\xampp\\htdocs\\ci-app\\public\\index.php')
+CRITICAL - 2025-07-07 00:50:43 --> ErrorException: Undefined variable $judul
+[Method: GET, Route: mahasiswa]
+in APPPATH\Views\layouts\template.php on line 6.
+ 1 APPPATH\Views\layouts\template.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $judul', 'D:\\xampp\\htdocs\\ci-app\\app\\Views\\layouts\\template.php', 6)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\xampp\\htdocs\\ci-app\\app\\Views\\layouts\\template.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('layouts/template', [], true)
+ 5 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('mahasiswa/index', [], true)
+ 6 APPPATH\Controllers\Mahasiswa.php(9): view('mahasiswa/index')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Mahasiswa->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mahasiswa))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\xampp\\htdocs\\ci-app\\public\\index.php')
