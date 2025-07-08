@@ -35,10 +35,10 @@ class Mahasiswa extends BaseController
   {
     if(!$this->validate([
       'nama' => [
-        'rules' => 'required|alpha',
+        'rules' => 'required|alpha_space',
         'errors' => [
           'required' => '{field} harus di isi',
-          'alpha' => '{field} tidak boleh mengandung simbol',
+          'alpha_space' => '{field} tidak boleh mengandung simbol',
         ]
       ],
       'npm' => [
@@ -63,8 +63,11 @@ class Mahasiswa extends BaseController
       ],
     ])) {
       return redirect()->back()->withInput();
+    } else {
+      $data = $this->request->getPost();
+      $this->MahasiswaModel->tambahData($data);
+      return redirect()->to('/mahasiswa')->with('pesan','data berhasil ditambahkan');
     };
-
     
   }
 }

@@ -13,4 +13,16 @@ class MahasiswaModel extends Model
   {
     return $this->findAll();
   }
+
+  public function tambahData($data)
+  {
+    $this->insert([
+      'nama' => htmlspecialchars($data['nama']),
+      'npm' => htmlspecialchars($data['npm']),
+      'email' => htmlspecialchars($data['email']),
+      'jurusan' => htmlspecialchars($data['jurusan']),
+      'status' => 'Mahasiswa Aktif',
+      'gambar' => 'default.png',
+    ]);
+  }
 }
