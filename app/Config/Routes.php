@@ -7,3 +7,5 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Beranda::index');
 $routes->get('/mahasiswa', 'Mahasiswa::index');
+$routes->get('/tambah', 'Mahasiswa::tambahDataMahasiswa');
+$routes->post('/tambah', 'Mahasiswa::cekData');
