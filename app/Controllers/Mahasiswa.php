@@ -68,6 +68,21 @@ class Mahasiswa extends BaseController
       $this->MahasiswaModel->tambahData($data);
       return redirect()->to('/mahasiswa')->with('pesan','data berhasil ditambahkan');
     };
-    
   }
+
+  public function detailMahasiswa($id)
+  {
+    $data = [
+      'judul' => 'Detail Mahasiswa',
+      'mahasiswa' => $this->MahasiswaModel->find($id),
+    ];
+    return view('mahasiswa/detail', $data);
+  }
+
+  public function hapusData($id)
+  {
+    $this->MahasiswaModel->delete($id);
+    return redirect()->back()->with('pesan','data mahasiswa berhasil dihapus');
+  }
+
 }
