@@ -33,38 +33,11 @@ class Mahasiswa extends BaseController
 
   public function cekData()
   {
-    if(!$this->validate([
-      'nama' => [
-        'rules' => 'required|alpha_space',
-        'errors' => [
-          'required' => '{field} harus di isi',
-          'alpha_space' => '{field} tidak boleh mengandung simbol',
-        ]
-      ],
-      'npm' => [
-        'rules' => 'required|numeric',
-        'errors' => [
-          'required' => '{field} harus di isi',
-          'numeric' => '{field} tidak boleh mengandung simbol atau huruf',
-        ]
-      ],
-      'email' => [
-        'rules' => 'required|valid_email',
-        'errors' => [
-          'required' => '{field} harus di isi',
-          'valid_email' => '{field} tidak sesuai format',
-        ]
-      ],
-      'jurusan' => [
-        'rules' => 'in_list[Teknik Informatika,Sistem Informasi,Hukum,Kesehatan Masyarakat]',
-        'errors' => [
-          'in_list' => '{field} harus di pilih',
-        ]
-      ],
-    ])) {
+    $data = $this->request->getPost();
+    $validation = service('validation');
+    if(!$validation->run($data, 'mahasiswaValidate')) {
       return redirect()->back()->withInput();
     } else {
-      $data = $this->request->getPost();
       $this->MahasiswaModel->tambahData($data);
       return redirect()->to('/mahasiswa')->with('pesan','data berhasil ditambahkan');
     };
@@ -79,10 +52,33 @@ class Mahasiswa extends BaseController
     return view('mahasiswa/detail', $data);
   }
 
+  public function ubah($id)
+  {
+    $data = [
+      'judul' => 'Form Ubah Data',
+      'mhs' => $this->MahasiswaModel->find($id),
+    ];
+    helper('form');
+    return view('mahasiswa/ubah', $data);
+  }
+
+  public function cekUbahData($id)
+  {
+    $validation = service('validation');
+    $data = $this->request->getPost();
+    if(!$validation->run($data, 'mahasiswaValidate')) {
+      return redirect()->back()->withInput();
+    } else {
+      $this->MahasiswaModel->UbahData($data, $id);
+      return redirect()->to('mahasiswa')->with('pesan','data berhasil diubah');
+    }
+  }
+
   public function hapusData($id)
   {
     $this->MahasiswaModel->delete($id);
     return redirect()->back()->with('pesan','data mahasiswa berhasil dihapus');
   }
+
 
 }

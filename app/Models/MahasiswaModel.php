@@ -25,4 +25,15 @@ class MahasiswaModel extends Model
       'gambar' => 'default.png',
     ]);
   }
+  
+  public function UbahData($data, $id)
+  {
+    $this->update($id,[
+      'nama' => htmlspecialchars($data['nama']),
+      'npm' => htmlspecialchars($data['npm']),
+      'email' => htmlspecialchars($data['email']),
+      'jurusan' => htmlspecialchars($data['jurusan']),
+    ]);
+  }
+
 }
